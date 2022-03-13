@@ -1,3 +1,20 @@
+/**
+ * @license
+ * Copyright 2022 Futrime & M1saka10010
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import { postData } from './include.mjs'
 
 function triggerGuestMode() {
@@ -83,6 +100,9 @@ if (resData.code === 428) {
     document.querySelector('.shao-paste-alias').value = resData.alias;
     document.querySelector('.shao-paste-display').innerHTML = marked.parse(`# ${resData.title}\n` + DOMPurify.sanitize(resData.text));
     document.querySelector('.shao-paste-textarea').value = resData.text;
+    if (resData.alias === '') {
+        document.querySelector('.shao-copy-alias-link-button').setAttribute('hidden', '');
+    }
 }
 
 window.resData = resData; // to use in event listeners
@@ -240,5 +260,8 @@ document.querySelector('.shao-modal-continue').addEventListener('click', async (
     document.querySelector('.shao-paste-alias').value = window.resData.alias;
     document.querySelector('.shao-paste-display').innerHTML = marked.parse(`# ${window.resData.title}\n` + DOMPurify.sanitize(window.resData.text));
     document.querySelector('.shao-paste-textarea').value = window.resData.text;
+    if (resData.alias === '') {
+        document.querySelector('.shao-copy-alias-link-button').setAttribute('hidden', '');
+    }
     window.modal.hide();
 });
