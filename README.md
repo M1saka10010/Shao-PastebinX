@@ -14,7 +14,7 @@ SHAO Pastebin is a web app for storing and sharing any text online. This kind of
 
 ### Our Service
 
-Don't you want to deploy on your own? Just visit [our website](https://pastebin.futrime.com) to use our public service!
+Don't you want to deploy on your own? Just visit [our website](https://paste.shao.fun) to use our public service!
 
 ### Server
 
@@ -54,4 +54,4 @@ We **RECOMMEND** deploying with GitHub Pages, for the best experience and the mo
     1. You can also add your custom domain
 
 ## License
-SHAO Pastebin is released under Apache-2.0 License. See [the LICENSE file](https://github.com/Futrime/SHAO-Pastebin/blob/master/LICENSE) for more details
+SHAO Pastebin is released under Apache-2.0 License. See [the LICENSE file](https://github.com/M1saka10010/Shao-PastebinX/blob/master/LICENSE) for more details

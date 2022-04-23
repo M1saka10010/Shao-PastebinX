@@ -1,12 +1,30 @@
 <?php
-    define('DB_HOST', 'localhost');
-    define('DB_USER', '这里改成登录的用户名'); // 登录的用户名
-    define('DB_PASS', '登录的密码'); // 登录的密码
-    define('DB_NAME', '数据库名称'); // 数据库名称
 
-    define('SITE_NAME','发送邮件用的名字'); // 发送邮件用的名字
-    define('EMAIL_ADDRESS','发送邮件用的邮箱'); // 发送邮件用的邮箱
-    define('SENDGRID_KEY','SendGrid的key'); // 发送邮件用的key
+/**
+ * @license
+ * Copyright 2022 Futrime & M1saka10010
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-    define('SYSTEM', TRUE);// 防注入
+    define('DB_HOST', 'Database address');
+    define('DB_USER', 'Database username');
+    define('DB_PASS', 'Database password');
+    define('DB_NAME', 'Database name');
+
+    define('SITE_NAME','Name for sending emails');
+    define('EMAIL_ADDRESS','Email address for sending emails');
+    define('SENDGRID_KEY','SendGrid key for sending emails');
+
+    define('SYSTEM', TRUE);// to avoid SQL injection
 ?>
