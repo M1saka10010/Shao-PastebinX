@@ -1,3 +1,20 @@
+/**
+ * @license
+ * Copyright 2022 Futrime & M1saka10010
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 -- phpMyAdmin SQL Dump
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
@@ -44,11 +61,12 @@ CREATE TABLE `mail_confirm` (
 CREATE TABLE `pastebin` (
   `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
-  `alias` varchar(20) NOT NULL,
+  `alias` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `encryption` tinyint(1) NOT NULL,
   `password` varchar(32) NOT NULL,
   `title` varchar(100) NOT NULL,
-  `text` mediumtext NOT NULL
+  `text` mediumtext NOT NULL,
+  `metadata` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -59,14 +77,14 @@ CREATE TABLE `pastebin` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `mail` varchar(30) NOT NULL,
+  `username` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `mail` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `password` varchar(32) NOT NULL,
   `level` int(11) NOT NULL,
   `token` varchar(32) NOT NULL,
   `regist_date` int(11) NOT NULL,
   `latest_date` int(11) NOT NULL,
-  `salt` varchar(4) NOT NULL
+  `salt` varchar(4) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -84,12 +102,16 @@ ALTER TABLE `mail_confirm`
 --
 ALTER TABLE `pastebin`
   ADD PRIMARY KEY (`id`);
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- 表的索引 `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD UNIQUE KEY `mail` (`mail`);
 
 --
 -- 在导出的表使用AUTO_INCREMENT
